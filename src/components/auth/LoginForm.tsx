@@ -8,15 +8,21 @@ import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './LoginForm.module.scss';
 
 const LoginForm = () => {
-  const { login } = useAuth();
+  const { login, user } = useAuth();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
-
+  
+  useEffect(() => {
+    if (user) {
+      router.replace('/dashboard');
+    }
+  }, [user, router]);
+  
   const {
     register,
     handleSubmit,
@@ -32,7 +38,7 @@ const LoginForm = () => {
   const onSubmit = async () => {
     setIsLoading(true);
     setApiError(null);
-    
+
     try {
       const user = await fetchUser();
       login(user);
@@ -48,6 +54,7 @@ const LoginForm = () => {
       setIsLoading(false);
     }
   };
+  const phoneRegister = register('phone');
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -55,7 +62,8 @@ const LoginForm = () => {
         label="Iranian Mobile Number"
         placeholder="09123456789"
         error={errors.phone?.message}
-        {...register('phone')}
+        {...phoneRegister}
+        ref={phoneRegister.ref}
         autoComplete="tel-national"
         inputMode="numeric"
       />

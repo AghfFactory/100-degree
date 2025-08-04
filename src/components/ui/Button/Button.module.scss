@@ -15,28 +15,28 @@
     opacity: 0.7;
     cursor: not-allowed;
   }
+}
 
-  &.primary {
-    background-color: #0070f3;
-    color: white;
+.primary {
+  background-color: #0070f3;
+  color: white;
 
-    &:hover:not(:disabled) {
-      background-color: #0366d6;
-    }
+  &:hover:not(:disabled) {
+    background-color: #0366d6;
   }
+}
 
-  .spinner {
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s linear infinite;
-  }
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
