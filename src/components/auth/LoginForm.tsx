@@ -29,7 +29,7 @@ const LoginForm = () => {
     }
   });
 
-  const onSubmit = async (data: LoginFormData) => {
+  const onSubmit = async () => {
     setIsLoading(true);
     setApiError(null);
     
