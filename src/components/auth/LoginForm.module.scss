@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.apiError {
+  color: #e53e3e;
+  background-color: #fff5f5;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #fed7d7;
+  text-align: center;
+  margin: 0;
+}
+
+.submitButton {
+  margin-top: 0.5rem;
+}
